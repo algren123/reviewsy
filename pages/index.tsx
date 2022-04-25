@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import type { NextPage } from "next";
 import { useState } from "react";
 import Head from "next/head";
@@ -19,10 +20,14 @@ import { motion } from "framer-motion";
 
 // Styles
 import styles from "../styles/Home.module.scss";
+import { useReviews } from "../context/reviewsContext";
 
 const Home: NextPage = () => {
   const { user, error, isLoading } = useUser();
   const { state, dispatch } = useModal();
+  const reviews = useReviews();
+
+  console.log(reviews);
 
   if (error)
     return <div>An error was encountered. Please try again later.</div>;
@@ -90,6 +95,24 @@ const Home: NextPage = () => {
               >
                 Welcome back, {user.name?.split(" ")[0]}
               </motion.h1>
+              {reviews &&
+                reviews.map((review) => {
+                  return (
+                    <div>
+                      Poster: {review.username}
+                      {review.replies?.map((reply) => {
+                        return (
+                          <div>
+                            Reply 1: {reply.username}
+                            {reply.replies?.map((reply) => (
+                              <div>Reply 2: {reply.username}</div>
+                            ))}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })}
               <Button onClickAction={() => dispatch({ type: "show" })} primary>
                 Add Review
               </Button>

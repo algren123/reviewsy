@@ -1,20 +1,39 @@
 import axios from "axios";
 import React from "react";
+import { TypicalReview } from "../fixtures/fixtures";
 
-type Dispatch = (action: Action) => void;
-type State = {};
-type Action = { type: "show" } | { type: "hide" };
 type CountProviderProps = { children: React.ReactNode };
+interface Reply {
+  id: number;
+  username: string;
+  email: string;
+  dateAdded: string;
+  comment: string;
+  upvotes: number;
+  replies?: Reply[];
+}
+interface Review {
+  id: number;
+  username: string;
+  email: string;
+  dateAdded: string;
+  title: string;
+  description: string;
+  gistLink: string;
+  upvotes: number;
+  replies?: Reply[];
+}
 
-const ReviewsContext = React.createContext(null);
-
-function ModalProvider({ children }: CountProviderProps) {
-  const [reviews, setReviews] = React.useState(null);
+const ReviewsContext = React.createContext<Review[] | null>(null);
+function ReviewsProvider({ children }: CountProviderProps) {
+  const [reviews, setReviews] = React.useState<Review[] | null>(null);
 
   React.useEffect(() => {
-    axios
-      .get("http://localhost:3000/reviews")
-      .then((res) => setReviews(res.data));
+    // axios
+    //   .get("http://localhost:3000/reviews")
+    //   .then((res) => setReviews(res.data));
+    setReviews(TypicalReview);
+    console.log(reviews);
   }, []);
 
   return (
@@ -32,4 +51,4 @@ function useReviews() {
   return context;
 }
 
-export { ModalProvider, useReviews };
+export { ReviewsProvider, useReviews };
