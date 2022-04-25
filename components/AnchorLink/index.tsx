@@ -8,7 +8,7 @@ interface IProps {
   secondary?: boolean;
 }
 
-const Button = ({
+const AnchorLink = ({
   children,
   link,
   primary,
@@ -26,4 +26,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default AnchorLink;

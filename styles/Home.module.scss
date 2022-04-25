@@ -1,3 +1,48 @@
 .container {
-  background-color: red;
+  text-align: center;
+
+  h1 {
+    font-size: 72px;
+    font-weight: bolder;
+    width: 100%;
+  }
+
+  p {
+    font-size: 24px;
+  }
+
+  .introContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .intro {
+      text-align: left;
+      max-width: 30%;
+
+      @media screen and (max-width: 800px) {
+        max-width: 80%;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+    }
+
+    .introImage {
+      margin-top: 0px;
+      margin: 20px;
+
+      @media screen and (max-width: 800px) {
+        display: none;
+      }
+    }
+  }
 }

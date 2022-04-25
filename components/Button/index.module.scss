@@ -13,3 +13,8 @@
   color: $dark-font;
   background-color: $secondary-colour;
 }
+
+.tertiary {
+  @include main-button;
+  background-color: $tertiary-colour;
+}

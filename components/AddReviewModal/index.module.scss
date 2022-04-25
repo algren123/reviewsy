@@ -1,0 +1,21 @@
+@import "styles/variables";
+
+.container {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 20%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 500px;
+    height: 500px;
+    border-radius: 3px;
+    background-color: $secondary-colour;
+
+    .formContainer {
+        display: flex;
+        flex-direction: column;
+        margin: 30px 60px;
+    }
+}
