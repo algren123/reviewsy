@@ -1,0 +1,15 @@
+@import "styles/mixins";
+@import "styles/variables";
+
+.primary {
+  @include main-button;
+  color: $light-font;
+  background-color: $primary-colour;
+  font-weight: 600;
+}
+
+.secondary {
+  @include main-button;
+  color: $dark-font;
+  background-color: $secondary-colour;
+}

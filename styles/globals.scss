@@ -1,0 +1,18 @@
+@import "styles/variables";
+
+html,
+body {
+  background-color: $light-font;
+  padding: 0;
+  margin: 0;
+  font-family: "Circular Std", sans-serif !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
